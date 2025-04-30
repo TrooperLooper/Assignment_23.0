@@ -19,10 +19,8 @@ function LearningComponent(props) {
         </div>
 
         <div className="mb-5">
-          <button className="bg-emerald-600/50 h-10 w-25 rounded-xl drop-shadow-sm text-sm font-medium text-white ">
-            <a href="https://github.com/TrooperLooper/Assignment_5.0/">
-              Github repo
-            </a>
+          <button className="bg-emerald-600/50 h-10 w-25 rounded-3xl drop-shadow-sm text-sm font-medium text-white border border-transparent hover:border hover:border-emerald-600">
+            <a href={props.link}>Github repo</a>
           </button>
         </div>
         <hr className="h-px bg-gray-200 border-0 " />
