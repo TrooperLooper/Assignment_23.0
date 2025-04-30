@@ -1,4 +1,11 @@
 import "./App.css";
+
+import NavBar from 'Pages/NavBar.jsx';
+import About from '/Pages/About';
+import Skills from 'Pages/Skills';
+import Contact from 'Pages/Contact';
+
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { useState } from "react";
 
 import LearningComponent from "./LearningComponent.jsx";
@@ -7,11 +14,11 @@ import LearningComponent from "./LearningComponent.jsx";
 //error?
 function showHide() {const [isShown, setIsShown] = useState(false);}
 
-function App() { // TODO: why is this not working
+function App() { 
   return (
     <>
-      
-      <body className="bg-emerald-100">
+  
+      <body className="bg-emerald-100"></body>
         <div className="bg-emerald-900/70 md:h-55 h-25 w-full md:mb-10 mb-4">
           <div className="flex items-center flex-col">
             <div className="max-w-2xl flex items-center md:pt-2 pt-5 md:h-40 h-15">
@@ -20,6 +27,17 @@ function App() { // TODO: why is this not working
                 alt="handlettering text saying; My portfolio"
                 className=" md:h-40 h-15"
               />
+                <BrowserRouter>
+                <div className="absolute top-0 right-0 px-8 py-8">
+                <NavBar />
+                </div>
+                <Routes>
+                    <Route path="/" element={<Portfolio />} />
+                    <Route path="/about" element={<About />} />
+                    <Route path="/skills" element={<Skills />} />
+                    <Route path="/contact" element={<Contact />} />
+                </Routes>
+                </BrowserRouter>
             </div>
             </div>
             <p className="md:text-xl md: mt-5 text-xs font-normal text-white/80">
@@ -90,11 +108,12 @@ function App() { // TODO: why is this not working
                               link="https://github.com/TrooperLooper/Assignment_16.0/"
                             />
                           </div>
-
-                           </div>
+                        </div>
+                </div>
+                        
             )}
           
-          </div>
+          
           <div className="flex h-55 flex-col mt-20">
             <img
               src="/images/thanks-dark.svg"
@@ -118,12 +137,10 @@ function App() { // TODO: why is this not working
                 page.
               </p>
             </footer>
-          </div>
         </div>
-      </body>
-
+        
     </>
   );
-} 
+}
 
 export default App;
