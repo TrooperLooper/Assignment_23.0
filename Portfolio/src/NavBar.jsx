@@ -2,36 +2,23 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 
 function NavBar() {
-  const [isOpen, setIsOpen] = useState(false);
-
   return (
     <div>
       <nav>
-        <button onClick={() => setIsOpen(!isOpen)}>
-          {
-            <img
-              src="/images/homemadeburger.svg"
-              alt="menu"
-              className="w-8 h-8"
-            />
-          }
-          Menu
-        </button>
-
-        <ul className="NAVIGATION-MOBILE-OPEN flex flex-col items-center justify-between min-h-[250px]">
-          <li className="border-b border-emerald-400 my-8 uppercase">
+        <ul className="h-6 bg-emerald-400/70 flex items-center justify-center text-xs md:text-sm gap-5 md:gap-12">
+          <li className="text-white">
             <Link to="/">Home</Link>
           </li>
-          <li className="border-b border-emerald-400 my-8 uppercase">
+          <li className="text-white">
             <Link to="/Projects">Portfolio</Link>
           </li>
-          <li className="border-b border-emerald-400 my-8 uppercase">
+          <li className="text-white">
             <Link to="/About">About</Link>
           </li>
-          <li className="border-b border-emerald-400 my-8 uppercase">
+          <li className="text-white">
             <Link to="/Skills">Skills</Link>
           </li>
-          <li className="border-b border-emerald-400 my-8 uppercase">
+          <li className="text-white">
             <Link to="/Contact">Contact</Link>
           </li>
         </ul>
@@ -41,3 +28,17 @@ function NavBar() {
 }
 
 export default NavBar;
+
+/*      
+<img
+              src="/images/homemadeburger.svg"
+              alt="menu"
+              className="w-8 h-8"
+            />
+          }
+          Menu
+
+
+            const [isOpen, setIsOpen] = useState(false);
+
+          */
