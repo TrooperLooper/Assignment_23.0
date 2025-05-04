@@ -1,29 +1,23 @@
-import Header from "./Header.jsx";
-import Footer from "./Footer.jsx";
+import LearningComponent from "../src/components/LearningComponent.jsx";
+import { useState } from "react";
+import Header from "../src/components/Header.jsx";
+import Footer from "../src/components/Footer.jsx";
 
-function Home() {
+import "./App.css";
+
+function Projects() {
+  const [isShown, setIsShown] = useState(false);
+
   return (
     <>
-      <Header />;<p>Nothing to see here</p>
-      <Footer />;
-    </>
-  );
-}
-
-export default Home;
-
-/*
-
-
-    
-        <button
-          className="mt-4 p-2 bg-emerald-500 text-white rounded"
-          onClick={() => setIsShown(!isShown)}
-        >
-          {isShown ? "Hide" : "Show"} Projects
-        </button>
-      </div>
-      {isShown && ( //error?
+      <Header />
+      <button
+        className="mt-4 p-2 bg-emerald-500 text-white rounded"
+        onClick={() => setIsShown(!isShown)}
+      >
+        {isShown ? "Hide" : "Show"} Projects
+      </button>
+      {isShown && (
         <div className="@container">
           <div className="grid grid-cols-1 @sm:grid-cols-2  gap-5 justify-center">
             <div className="transition-transform transform hover:scale-102 duration-400">
@@ -36,6 +30,7 @@ export default Home;
                 link="https://github.com/TrooperLooper/Assignment_5.0/"
               />
             </div>
+
             <div className="transition-transform transform hover:scale-102 duration-400">
               <LearningComponent
                 title="Book library"
@@ -53,37 +48,15 @@ export default Home;
                 techused="Javascript, HTML, CSS"
                 info="Tech used"
                 text="You guessed it! This is a game where you need to type the word shown - as fast as you can to score."
-                link="https://github.com/TrooperLooper/Assignment_16.0/"
+                link="https://github.com/TrooperLooper/Assignment_22.0/"
               />
             </div>
           </div>
         </div>
       )}
+      <Footer />
+    </>
+  );
+}
 
-      <div className="flex h-55 flex-col mt-20">
-        <img
-          src="/images/thanks-dark.svg"
-          className=" h-10 m-3"
-          alt="Thanks for visiting"
-        />
-        <img
-          src="/images/banner.svg"
-          className="h-15 mb-5 flex flex-justify-center "
-          alt="small banner with the text: come back soon"
-        />
-        <footer className="bg-emerald-700/70 h-11 flex justify-center items-center">
-          <p className="text-white/70 text-xs">
-            Lars Munck. 2025 - To get in touch with me, please visit my{" "}
-            <a
-              href="https://github.com/TrooperLooper"
-              className="hover:text-blue-500 underline"
-            >
-              Github
-            </a>{" "}
-            page.
-          </p>
-        </footer>
-      </div>
-    </div>
-
-    */
+export default Projects;

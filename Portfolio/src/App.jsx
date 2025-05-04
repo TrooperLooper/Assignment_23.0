@@ -1,10 +1,11 @@
 import "./App.css";
 
-import About from "./About.jsx";
-import Skills from "./Skills.jsx";
-import Contact from "./Contact.jsx";
-import Projects from "./Projects.jsx";
-import Home from "./Home.jsx";
+import About from "../Pages/About.jsx";
+import Skills from "../Pages/Skills.jsx";
+import Contact from "../Pages/Contact.jsx";
+import Projects from "../Pages/Projects.jsx";
+import Home from "../Pages/Home.jsx";
+import NavBar from "./components/NavBar.jsx";
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
@@ -12,6 +13,7 @@ function App() {
   return (
     <div>
       <BrowserRouter>
+        <NavBar />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/Home" element={<Home />} />

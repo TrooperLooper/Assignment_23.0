@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import { useState } from "react";
 
 function NavBar() {
   return (
@@ -28,17 +27,3 @@ function NavBar() {
 }
 
 export default NavBar;
-
-/*      
-<img
-              src="/images/homemadeburger.svg"
-              alt="menu"
-              className="w-8 h-8"
-            />
-          }
-          Menu
-
-
-            const [isOpen, setIsOpen] = useState(false);
-
-          */

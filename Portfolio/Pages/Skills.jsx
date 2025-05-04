@@ -1,5 +1,5 @@
-import Header from "./Header.jsx";
-import Footer from "./Footer.jsx";
+import Header from "../src/components/Header.jsx";
+import Footer from "../src/components/Footer.jsx";
 
 function Skills() {
   return (

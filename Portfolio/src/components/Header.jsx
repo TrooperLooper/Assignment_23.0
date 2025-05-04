@@ -1,5 +1,3 @@
-import NavBar from "./NavBar.jsx";
-
 function Header() {
   return (
     <div>
@@ -16,7 +14,6 @@ function Header() {
         <p className="md:text-xl md:mt-3 mt-2 text-xs mb-2 font-normal text-white/80">
           Handpicked milestone projects from my coding journey.
         </p>
-        <NavBar />
       </div>
 
       <div className="w-auto flex items-center justify-center mt-6">
