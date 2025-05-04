@@ -44,7 +44,7 @@ function Projects() {
             <div className="transition-transform transform hover:scale-102 duration-400">
               <LearningComponent
                 title="Wordtyping game"
-                img="./images/screenshot1.png"
+                img="./images/typinggame.jpg"
                 techused="Javascript, HTML, CSS"
                 info="Tech used"
                 text="You guessed it! This is a game where you need to type the word shown - as fast as you can to score."
