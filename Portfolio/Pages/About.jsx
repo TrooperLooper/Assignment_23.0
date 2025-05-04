@@ -1,8 +1,6 @@
 import Header from "../src/components/Header.jsx";
 import Footer from "../src/components/Footer.jsx";
 
-import "./App.css";
-
 function About() {
   return (
     <>
