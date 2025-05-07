@@ -9,15 +9,17 @@ function Projects() {
   return (
     <>
       <Header />
-      <button
-        className="mt-4 p-2 bg-emerald-500 text-white rounded"
-        onClick={() => setIsShown(!isShown)}
-      >
-        {isShown ? "Hide" : "Show"} Projects
-      </button>
+      <div className="flex flex-col items-center justify-center">
+        <button
+          className="m-4 p-2 bg-emerald-500 text-white rounded hover:bg-emerald-600 transition duration-300"
+          onClick={() => setIsShown(!isShown)}
+        >
+          {isShown ? "Hide" : "Show"} Projects
+        </button>
+      </div>
       {isShown && (
         <div className="@container">
-          <div className="grid grid-cols-1 @sm:grid-cols-2  gap-5 justify-center">
+          <div className="grid grid-cols-1 @sm:grid-cols-2 gap-5 justify-center">
             <div className="transition-transform transform hover:scale-102 duration-400">
               <LearningComponent
                 title="Flexbox pattern"
@@ -52,9 +54,48 @@ function Projects() {
           </div>
         </div>
       )}
-      <Footer />
+      <div>
+        <Footer />
+      </div>
     </>
   );
 }
 
 export default Projects;
+
+{
+  /*
+
+  <Footer /> component is not sticking to bottom of the page what to do?
+
+
+  function PopUp() {
+  const [isShown, setIsShown] = useState(0);
+  const [popupInfo, setPopupInfo] = useState({
+    title: "",
+    img: "",
+    techused: "",
+    info: "This is some info about the project",
+    link: "",
+  });
+
+  const [isOpen, setIsOpen] = useState(false);
+
+  const closePopup = () => {
+    setIsOpen(false);
+  }
+  return (
+<div> 
+<button onClick={() => setIsOpen(true)}>Open Popup</button>
+<h1>{isOpen}</h1>
+isOpen && (
+<PopupWindow title={popupInfo.title} info= {popupInfo.info} onClick={closePopup}/>
+<div>
+</div> 
+);
+}
+
+export
+
+  */
+}

@@ -1,7 +1,7 @@
 function Header() {
   return (
     <div>
-      <div className="bg-emerald-900/70 md:h-55 h-25 w-full md:mb-10 mb-4">
+      <div className="bg-emerald-900/70 md:h-55 h-25 w-full md:mb-6 mb-4">
         <div className="flex items-center flex-col">
           <div className="max-w-2xl flex items-center md:pt-2 pt-5 md:h-40 h-15">
             <img
@@ -11,7 +11,7 @@ function Header() {
             />
           </div>
         </div>
-        <p className="md:text-xl md:mt-3 mt-2 text-xs mb-2 font-normal text-white/80">
+        <p className="md:text-xl mt-3 text-xs mb-2 font-normal text-white/80 text-center">
           Handpicked milestone projects from my coding journey.
         </p>
       </div>
