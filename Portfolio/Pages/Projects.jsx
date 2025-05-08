@@ -1,8 +1,8 @@
-import LearningComponent from "../components/LearningComponent.jsx";
+import LearningComponent from "../src/components/LearningComponent.jsx";
 import { useState } from "react";
-import Header from "../components/Header.jsx";
-import Footer from "../components/Footer.jsx";
-import PopUp from "../components/PopUpWindow.jsx";
+import Header from "../src/components/Header.jsx";
+import Footer from "../src/components/Footer.jsx";
+import PopUp from "../src/components/PopUpWindow.jsx";
 
 function Projects() {
   const [isShown, setIsShown] = useState(false);
@@ -26,7 +26,7 @@ function Projects() {
       info: "Tech used",
       abstract:
         "This project demonstrates a CSS flexbox layout based on a Figma design.",
-      text: "In this assignment, we were asked to design a CSS flexbox layout according to a Figma file. This laid the foundation for my understanding of flexbox and responsive design.",
+      text: "In this assignment, we were asked to design a CSS flexbox layout according to a Figma file. This laid the foundation for my understanding of flexbox and responsive design. This was a solo-project.",
       link: "https://github.com/TrooperLooper/Assignment_5.0/",
     },
     {
@@ -36,7 +36,7 @@ function Projects() {
       info: "Tech used",
       abstract:
         "A JavaScript challenge to create a library of books, viewable in the console.",
-      text: "This was a fun JavaScript challenge to create a library of books that I either have read or want to read. The library is managed in the console and demonstrates object manipulation and DOM interaction.",
+      text: "This was a fun JavaScript challenge to create a library of books that I either have read or want to read. The library is managed in the console and demonstrates object manipulation and DOM interaction. This was a solo-project.",
       link: "https://github.com/TrooperLooper/Assignment_16.0/",
     },
     {
@@ -46,7 +46,7 @@ function Projects() {
       info: "Tech used",
       abstract:
         "A typing game where you type words as fast as possible to score.",
-      text: "You guessed it! This is a game where you need to type the word shown as fast as you can to score points. It demonstrates event handling, timers, and DOM manipulation in JavaScript.",
+      text: "I coded a game where you need to type the word shown as fast as you can to score points. It demonstrates event handling, timers, and DOM manipulation in JavaScript. This was a solo-project.",
       link: "https://github.com/TrooperLooper/Assignment_22.0/",
     },
   ];
