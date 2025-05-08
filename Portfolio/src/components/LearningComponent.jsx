@@ -4,7 +4,7 @@ function LearningComponent(props) {
       <div class="">
         <div className="sm shrink=0">
           <img
-            className="w-full h-35 object-cover"
+            className="w-full h-20 object-cover"
             src={props.img}
             alt="screendump of a front end assignment"
           />
@@ -15,7 +15,7 @@ function LearningComponent(props) {
         </h3>
 
         <div className="mb-8 mx-4">
-          <p className="text-gray-700 text-sm ">{props.text}</p>
+          <p className="text-sm text-gray-700 mt-2">{props.abstract}</p>{" "}
         </div>
 
         <div className="mb-5 flex items-center justify-center">
@@ -80,4 +80,4 @@ export default LearningComponent;
  hover:dark:text-white hover:scale-0.2 transition duration-300 ease-in-out
  */
 
-/*link need to b fixed w a repo*/
+/*check repolinks are correct*/

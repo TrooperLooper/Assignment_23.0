@@ -1,10 +1,55 @@
-import LearningComponent from "../src/components/LearningComponent.jsx";
+import LearningComponent from "../components/LearningComponent.jsx";
 import { useState } from "react";
-import Header from "../src/components/Header.jsx";
-import Footer from "../src/components/Footer.jsx";
+import Header from "../components/Header.jsx";
+import Footer from "../components/Footer.jsx";
+import PopUp from "../components/PopUpWindow.jsx";
 
 function Projects() {
   const [isShown, setIsShown] = useState(false);
+  const [showPopup, setShowPopup] = useState(false);
+  const [popupContent, setPopupContent] = useState({});
+
+  const handleCardClick = (project) => {
+    setPopupContent(project); // innehållet i pop-up
+    setShowPopup(true); // visa pop-up
+  };
+
+  const handleClosePopup = () => {
+    setShowPopup(false); // göm pop-up
+  };
+
+  const projects = [
+    {
+      title: "Flexbox pattern",
+      img: "./images/screenshot1.png",
+      techused: "Javascript, HTML, CSS",
+      info: "Tech used",
+      abstract:
+        "This project demonstrates a CSS flexbox layout based on a Figma design.",
+      text: "In this assignment, we were asked to design a CSS flexbox layout according to a Figma file. This laid the foundation for my understanding of flexbox and responsive design.",
+      link: "https://github.com/TrooperLooper/Assignment_5.0/",
+    },
+    {
+      title: "Book library",
+      img: "./images/library.png",
+      techused: "Javascript, HTML, CSS",
+      info: "Tech used",
+      abstract:
+        "A JavaScript challenge to create a library of books, viewable in the console.",
+      text: "This was a fun JavaScript challenge to create a library of books that I either have read or want to read. The library is managed in the console and demonstrates object manipulation and DOM interaction.",
+      link: "https://github.com/TrooperLooper/Assignment_16.0/",
+    },
+    {
+      title: "Wordtyping game",
+      img: "./images/typinggame.jpg",
+      techused: "Javascript, HTML, CSS",
+      info: "Tech used",
+      abstract:
+        "A typing game where you type words as fast as possible to score.",
+      text: "You guessed it! This is a game where you need to type the word shown as fast as you can to score points. It demonstrates event handling, timers, and DOM manipulation in JavaScript.",
+      link: "https://github.com/TrooperLooper/Assignment_22.0/",
+    },
+  ];
 
   return (
     <>
@@ -18,84 +63,38 @@ function Projects() {
         </button>
       </div>
       {isShown && (
-        <div className="@container">
-          <div className="grid grid-cols-1 @sm:grid-cols-2 gap-5 justify-center">
-            <div className="transition-transform transform hover:scale-102 duration-400">
-              <LearningComponent
-                title="Flexbox pattern"
-                img="./images/screenshot1.png"
-                techused="Javascript, HTML, CSS"
-                info="Tech used"
-                text="In this assignment we were asked to design a CSS flexbox layout, accordingly to a figma file. This layed the foundation for my understanding of flex."
-                link="https://github.com/TrooperLooper/Assignment_5.0/"
-              />
-            </div>
-
-            <div className="transition-transform transform hover:scale-102 duration-400">
-              <LearningComponent
-                title="Book library"
-                img="./images/library.png"
-                techused="Javascript, HTML, CSS"
-                info="Tech used"
-                text="This was a fun javascript challenge, to create a library of books, that I either have read or want to read. This is viewed in the console."
-                link="https://github.com/TrooperLooper/Assignment_16.0/"
-              />
-            </div>
-            <div className="transition-transform transform hover:scale-102 duration-400">
-              <LearningComponent
-                title="Wordtyping game"
-                img="./images/typinggame.jpg"
-                techused="Javascript, HTML, CSS"
-                info="Tech used"
-                text="You guessed it! This is a game where you need to type the word shown - as fast as you can to score."
-                link="https://github.com/TrooperLooper/Assignment_22.0/"
-              />
-            </div>
+        <div className="container mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 justify-center">
+            {projects.map((project, index) => (
+              <div
+                key={index}
+                className="transition-transform transform hover:scale-102 duration-400 cursor-pointer"
+                onClick={() => handleCardClick(project)}
+              >
+                <LearningComponent
+                  title={project.title}
+                  img={project.img}
+                  techused={project.techused}
+                  info={project.info}
+                  abstract={project.abstract} // kort info till kort
+                />
+              </div>
+            ))}
           </div>
         </div>
       )}
-      <div>
-        <Footer />
-      </div>
+      {showPopup && (
+        <PopUp
+          title={popupContent.title}
+          img={popupContent.img}
+          text={popupContent.text} // text är längre info
+          link={popupContent.link}
+          onClose={handleClosePopup}
+        />
+      )}
+      <Footer />
     </>
   );
 }
 
 export default Projects;
-
-{
-  /*
-
-  <Footer /> component is not sticking to bottom of the page what to do?
-
-
-  function PopUp() {
-  const [isShown, setIsShown] = useState(0);
-  const [popupInfo, setPopupInfo] = useState({
-    title: "",
-    img: "",
-    techused: "",
-    info: "This is some info about the project",
-    link: "",
-  });
-
-  const [isOpen, setIsOpen] = useState(false);
-
-  const closePopup = () => {
-    setIsOpen(false);
-  }
-  return (
-<div> 
-<button onClick={() => setIsOpen(true)}>Open Popup</button>
-<h1>{isOpen}</h1>
-isOpen && (
-<PopupWindow title={popupInfo.title} info= {popupInfo.info} onClick={closePopup}/>
-<div>
-</div> 
-);
-}
-
-export
-
-  */
-}
