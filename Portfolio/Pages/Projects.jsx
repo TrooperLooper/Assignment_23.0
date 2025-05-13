@@ -106,7 +106,10 @@ function Projects() {
         /> </div>
       )}
       {preview && (
-      div className="flex justify-center mt-4">
+       <div className="flex justify-center mt-4">
+
+      {projects.filter((project) =>(projects.title-includes(search)))
+      .map ((projects, index) => ()
        <LearningComponent
        key={index}
        pTitle={projects.title}
