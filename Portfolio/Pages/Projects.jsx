@@ -8,6 +8,8 @@ function Projects() {
   const [isShown, setIsShown] = useState(false); // visa projekt är false
   const [showPopup, setShowPopup] = useState(false); // showPopup är false
   const [popupContent, setPopupContent] = useState({}); //popUpContent är en tom array
+  const [search, setSearch] = useState(""); // sökfältet är tomt
+  const [preview, setPreview] = useState(false); // preview är false
 
   const handleCardClick = (project) => {
     setPopupContent(project); // innehållet i pop-up

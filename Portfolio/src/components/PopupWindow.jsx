@@ -1,4 +1,4 @@
-import ReactIcon from "./ReactIcon.jsx";
+import ReactIcon from "Portfolio/src/components/PopupWindow.jsx";
 
 function PopUp({ title, img, text, link, onClose }) {
   // destrukturerad props hämtar värden i projects,jsx direkt title, etc
