@@ -5,9 +5,9 @@ import Footer from "../src/components/Footer.jsx";
 import PopUp from "../src/components/PopUpWindow.jsx";
 
 function Projects() {
-  const [isShown, setIsShown] = useState(false);
-  const [showPopup, setShowPopup] = useState(false);
-  const [popupContent, setPopupContent] = useState({});
+  const [isShown, setIsShown] = useState(false); // visa projekt är false
+  const [showPopup, setShowPopup] = useState(false); // showPopup är false
+  const [popupContent, setPopupContent] = useState({}); //popUpContent är en tom array
 
   const handleCardClick = (project) => {
     setPopupContent(project); // innehållet i pop-up
@@ -19,6 +19,7 @@ function Projects() {
   };
 
   const projects = [
+    // array med projekt
     {
       title: "Flexbox pattern",
       img: "./images/screenshot1.png",
@@ -61,13 +62,14 @@ function Projects() {
         >
           {isShown ? "Hide" : "Show"} Projects
         </button>
-      </div>
+      </div>{" "}
+      {/* knappen som visar projekten */}
       {isShown && (
         <div className="container mx-auto">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 justify-center">
             {projects.map((project, index) => (
               <div
-                key={index}
+                key={index} // unikt id för varje projekt
                 className="transition-transform transform hover:scale-102 duration-400 cursor-pointer"
                 onClick={() => handleCardClick(project)}
               >
@@ -76,13 +78,14 @@ function Projects() {
                   img={project.img}
                   techused={project.techused}
                   info={project.info}
-                  abstract={project.abstract} // kort info till kort
+                  abstract={project.abstract} // kort info till kort, men annars övriga är lika
                 />
               </div>
             ))}
           </div>
         </div>
-      )}
+      )}{" "}
+      {/* knappen som visar projekten */}
       {showPopup && (
         <PopUp
           title={popupContent.title}
@@ -92,6 +95,26 @@ function Projects() {
           onClose={handleClosePopup}
         />
       )}
+      {preview && (
+      <div className="flex justify-center mt-4">
+        <input
+          type="text"
+          className="border border-gray-300 rounded px-4 py-2"
+          placeholder="Search..."
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+        /> </div>
+      )}
+      {preview && (
+      div className="flex justify-center mt-4">
+       <LearningComponent
+       key={index}
+       pTitle={projects.title}
+       //pTags={projects.Tags}
+        />  
+      )
+      }
+
       <Footer />
     </>
   );
