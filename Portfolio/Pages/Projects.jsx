@@ -107,7 +107,7 @@ function Projects() {
           onClose={handleClosePopup}
         />
       )}
-      {isShown && (
+      {preview && (
         <div className="flex justify-center mt-4">
           <input
             type="text"
@@ -118,7 +118,7 @@ function Projects() {
           />{" "}
         </div>
       )}
-      {isShown && (
+      {preview && (
         <div className="flex justify-center mt-4">
           {projects
             .filter((project) =>
@@ -129,8 +129,8 @@ function Projects() {
             .map((project, index) => (
               <LearningComponent
                 key={index}
-                title={project.title}
-                techused={project.techused}
+                pTitle={project.title}
+                pTechused={project.techused}
               />
             ))}
         </div>
