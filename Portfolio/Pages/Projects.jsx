@@ -76,63 +76,54 @@ function Projects() {
       </div>{" "}
       {/* knappen som visar projekten */}
       {isShown && (
-        <div className="container mx-auto">
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 justify-center max-w-4xl mx-auto">
-            {projects.map((project, index) => (
-              <div
-                key={index} // unikt id för varje projekt
-                className="transition-transform transform hover:scale-102 duration-400 cursor-pointer"
-                onClick={() => handleCardClick(project)}
-              >
-                <LearningComponent
-                  title={project.title}
-                  img={project.img}
-                  techused={project.techused}
-                  info={project.info}
-                  abstract={project.abstract} // kort info till kort, men annars övriga är lika
-                />
-              </div>
-            ))}
+        <>
+          {/* Search bar */}
+          <div className="flex justify-center mt-4">
+            <input
+              type="text"
+              className="border border-gray-300 bg-white rounded-2xl px-3 py-1 text-sm"
+              placeholder="Search language..."
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+            />
           </div>
-        </div>
-      )}{" "}
-      {/* knappen som visar projekten */}
+
+          <div className="container mx-auto mt-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 justify-center max-w-4xl mx-auto">
+              {projects
+                .filter((project) =>
+                  project.techused.some((tech) =>
+                    tech.toLowerCase().includes(search.toLowerCase())
+                  )
+                )
+                .map((project, index) => (
+                  <div
+                    key={index}
+                    className="transition-transform transform hover:scale-102 duration-400 cursor-pointer"
+                    onClick={() => handleCardClick(project)}
+                  >
+                    <LearningComponent
+                      title={project.title}
+                      img={project.img}
+                      techused={project.techused}
+                      info={project.info}
+                      abstract={project.abstract}
+                    />
+                  </div>
+                ))}
+            </div>
+          </div>
+        </>
+      )}
+      {/* Pop-up flyttad ner*/}
       {showPopup && (
         <PopUp
           title={popupContent.title}
           img={popupContent.img}
-          text={popupContent.text} // text är längre info
+          text={popupContent.text}
           link={popupContent.link}
           onClose={handleClosePopup}
         />
-      )}
-      {isShown && (
-        <div className="flex justify-center mt-4">
-          <input
-            type="text"
-            className="border border-gray-300 rounded px-4 py-2"
-            placeholder="Search..."
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-          />{" "}
-        </div>
-      )}
-      {isShown && (
-        <div className="flex justify-center mt-4">
-          {projects
-            .filter((project) =>
-              project.techused.some((tech) =>
-                tech.toLowerCase().includes(search.toLowerCase())
-              )
-            )
-            .map((project, index) => (
-              <LearningComponent
-                key={index}
-                pTitle={project.title}
-                pTechused={project.techused}
-              />
-            ))}
-        </div>
       )}
       <Footer />
     </>
