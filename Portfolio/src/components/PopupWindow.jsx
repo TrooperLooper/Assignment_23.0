@@ -1,6 +1,4 @@
-import ReactIcon from "Portfolio/src/components/PopupWindow.jsx";
-
-function PopUp({ title, img, text, link, onClose }) {
+function PopUp({ title, img, text, link, techused, onClose }) {
   // destrukturerad props hämtar värden i projects,jsx direkt title, etc
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
@@ -23,16 +21,19 @@ function PopUp({ title, img, text, link, onClose }) {
           </div>
 
           <div className="mb-5 flex items-center justify-center">
-            <button className="bg-emerald-600/50 h-10 w-25 rounded-3xl drop-shadow-sm text-sm font-medium text-white border border-transparent hover:border hover:border-emerald-600">
-              <a href={link} target="_blank" rel="noopener noreferrer">
-                Github Repo
-              </a>
-            </button>
+            <a
+              href={link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-emerald-600/50 h-10 px-4 flex items-center justify-center rounded-3xl drop-shadow-sm text-sm font-medium text-white border border-transparent hover:border hover:border-emerald-600"
+            >
+              Github Repo
+            </a>
           </div>
 
           <div className="flex justify-center my-4">
             <button
-              className="bg-emerald-600/20 h-8 w-8 rounded-full drop-shadow-sm text-sm font-medium text-white border border-transparent hover:border hover:border-emerald-600"
+              className="bg-black h-8 w-8 rounded-full drop-shadow-sm text-sm font-medium text-white border border-transparent hover:border hover:border-emerald-600"
               onClick={onClose} // stänger popup
             >
               X
@@ -43,6 +44,7 @@ function PopUp({ title, img, text, link, onClose }) {
 
           <div className="flex flex-justify-center flex-col bg-emerald-100/20">
             <div className="px-20 pt-4 flex items-center h-18">
+              <div>{techused}</div>
               <svg viewBox="0 0 200 200">
                 <desc>HTML</desc>
                 <path

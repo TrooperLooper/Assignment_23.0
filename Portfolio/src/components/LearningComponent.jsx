@@ -19,9 +19,14 @@ function LearningComponent(props) {
         </div>
 
         <div className="mb-5 flex items-center justify-center">
-          <button className="bg-emerald-600/50 h-10 w-25 rounded-3xl drop-shadow-sm text-sm font-medium text-white border border-transparent hover:border hover:border-emerald-600">
-            <a href={props.link}>Github repo</a>
-          </button>
+          <a
+            href={props.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-emerald-600/50 h-10 px-4 flex items-center justify-center rounded-3xl drop-shadow-sm text-sm font-medium text-white border border-transparent hover:border hover:border-emerald-600"
+          >
+            Github Repo
+          </a>
         </div>
       </div>
     </div>

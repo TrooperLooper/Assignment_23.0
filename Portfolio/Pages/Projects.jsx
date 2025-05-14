@@ -25,7 +25,7 @@ function Projects() {
     {
       title: "Flexbox pattern",
       img: "./images/screenshot1.png",
-      techused: "Javascript, HTML, CSS",
+      techused: ["HTML", "CSS"],
       info: "Tech used",
       abstract:
         "This project demonstrates a CSS flexbox layout based on a Figma design.",
@@ -35,7 +35,7 @@ function Projects() {
     {
       title: "Book library",
       img: "./images/library.png",
-      techused: "Javascript, HTML, CSS",
+      techused: ["HTML", "CSS", "Javascript"],
       info: "Tech used",
       abstract:
         "A JavaScript challenge to create a library of books, viewable in the console.",
@@ -45,7 +45,17 @@ function Projects() {
     {
       title: "Wordtyping game",
       img: "./images/typinggame.jpg",
-      techused: "Javascript, HTML, CSS",
+      techused: ["HTML", "CSS", "Javascript"],
+      info: "Tech used",
+      abstract:
+        "A typing game where you type words as fast as possible to score.",
+      text: "I coded a game where you need to type the word shown as fast as you can to score points. It demonstrates event handling, timers, and DOM manipulation in JavaScript. This was a solo-project.",
+      link: "https://github.com/TrooperLooper/Assignment_22.0/",
+    },
+    {
+      title: "Hangman game",
+      img: "./images/typinggame.jpg",
+      techused: ["HTML", "CSS", "Javascript"],
       info: "Tech used",
       abstract:
         "A typing game where you type words as fast as possible to score.",
@@ -59,7 +69,7 @@ function Projects() {
       <Header />
       <div className="flex flex-col items-center justify-center">
         <button
-          className="m-4 p-2 bg-emerald-500 text-white rounded hover:bg-emerald-600 transition duration-300"
+          className="mt-4 mb-10 p-2 bg-emerald-500 text-white rounded hover:bg-emerald-600 transition duration-300"
           onClick={() => setIsShown(!isShown)}
         >
           {isShown ? "Hide" : "Show"} Projects
@@ -68,7 +78,7 @@ function Projects() {
       {/* knappen som visar projekten */}
       {isShown && (
         <div className="container mx-auto">
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 justify-center">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 justify-center max-w-4xl mx-auto">
             {projects.map((project, index) => (
               <div
                 key={index} // unikt id för varje projekt
@@ -97,7 +107,7 @@ function Projects() {
           onClose={handleClosePopup}
         />
       )}
-      {preview && (
+      {isShown && (
         <div className="flex justify-center mt-4">
           <input
             type="text"
@@ -108,17 +118,19 @@ function Projects() {
           />{" "}
         </div>
       )}
-      {preview && (
+      {isShown && (
         <div className="flex justify-center mt-4">
           {projects
             .filter((project) =>
-              project.title.toLowerCase().includes(search.toLowerCase())
+              project.techused.some((tech) =>
+                tech.toLowerCase().includes(search.toLowerCase())
+              )
             )
             .map((project, index) => (
               <LearningComponent
                 key={index}
-                pTitle={project.title}
-                // pTags={project.Tags}
+                title={project.title}
+                techused={project.techused}
               />
             ))}
         </div>
