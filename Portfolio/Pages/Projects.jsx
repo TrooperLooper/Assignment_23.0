@@ -9,7 +9,6 @@ function Projects() {
   const [showPopup, setShowPopup] = useState(false); // showPopup är false
   const [popupContent, setPopupContent] = useState({}); //popUpContent är en tom array
   const [search, setSearch] = useState(""); // sökfältet är tomt
-  const [preview, setPreview] = useState(false); // preview är false
 
   const handleCardClick = (project) => {
     setPopupContent(project); // innehållet i pop-up
@@ -107,7 +106,7 @@ function Projects() {
           onClose={handleClosePopup}
         />
       )}
-      {preview && (
+      {isShown && (
         <div className="flex justify-center mt-4">
           <input
             type="text"
@@ -118,7 +117,7 @@ function Projects() {
           />{" "}
         </div>
       )}
-      {preview && (
+      {isShown && (
         <div className="flex justify-center mt-4">
           {projects
             .filter((project) =>
